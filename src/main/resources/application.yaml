@@ -1,0 +1,36 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/order_food
+    username: root
+    password: 123456
+  profiles:
+    active: dev
+logging:
+  file:
+    path: /var/log/orderfood/
+  level:
+    root: info
+mybatis-plus:
+  global-config:
+    db-config:
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+      id-type: auto
+  configuration:
+    map-underscore-to-camel-case: true
+
+file:
+  upload:
+    path: /path
+
+security:
+  salt: orderfood
+  jwt:
+    secret: orderfood
+    expire: 3600
+    refresh: 1800
+#server:
+#  servlet:
+#    context-path: /api
